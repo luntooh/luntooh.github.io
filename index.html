@@ -18,10 +18,69 @@
             line-height: 1.5;
             scroll-behavior: smooth;
             font-weight: 400;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1C2E1F;
+            padding: 0 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 70px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-tab {
+            color: #D4C9B3;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .nav-tab:hover {
+            color: #F5F0E6;
+            border-bottom-color: #C5B89A;
+        }
+
+        .nav-tab.active {
+            color: #F5F0E6;
+            border-bottom-color: #C5B89A;
+        }
+
+        .page-container {
+            margin-top: 70px;
+            flex: 1;
+        }
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 70px);
+        }
+
+        .page.active {
+            display: block;
         }
 
         .slide {
-            min-height: 100vh;
+            min-height: calc(100vh - 70px);
             width: 100%;
             padding: 60px 5%;
             display: flex;
@@ -191,7 +250,161 @@
             60% {transform: translateX(-50%) translateY(5px);}
         }
 
+        .about-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(135deg, #2A4530 0%, #2E4A33 100%);
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-emoji {
+            font-size: 15rem;
+            opacity: 0.7;
+        }
+
+        .contacts-page {
+            min-height: calc(100vh - 70px);
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #2A4530 0%, #2E4A33 100%);
+        }
+
+        .contacts-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contacts-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #F5F0E6;
+            margin-bottom: 40px;
+            border-left: 8px solid #C5B89A;
+            padding-left: 25px;
+        }
+
+        .contacts-info {
+            background: #1C2E1F;
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid #5A7A5E;
+        }
+
+        .contacts-info p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #EBE5D9;
+        }
+
+        .contacts-info strong {
+            color: #F5F0E6;
+        }
+
+        .contact-form {
+            background: #1C2E1F;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #5A7A5E;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #F5F0E6;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #D4C9B3;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #2A4530;
+            border: 1px solid #5A7A5E;
+            border-radius: 12px;
+            color: #F5F0E6;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #C5B89A;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #A8B8A5;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #C5B89A;
+            color: #1C2E1F;
+            border: none;
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #D4C9B3;
+            transform: translateY(-2px);
+        }
+
+        .site-footer {
+            padding: 20px;
+            text-align: center;
+            background: #1C2E1F;
+            color: #D4C9B3;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-top: 1px solid #5A7A5E;
+        }
+
         @media (max-width: 768px) {
+            .header {
+                justify-content: center;
+                height: 60px;
+            }
+
+            .nav-tabs {
+                gap: 25px;
+            }
+
+            .nav-tab {
+                font-size: 1rem;
+            }
+
+            .page-container {
+                margin-top: 60px;
+            }
+
             .slide {
                 padding: 40px 20px;
             }
@@ -212,167 +425,261 @@
             .feature-list li {
                 font-size: 1.1rem;
             }
-        }
 
-        .site-footer {
-            padding: 28px;
-            text-align: center;
-            background: #1C2E1F;
-            color: #D4C9B3;
-            font-size: 1rem;
-            font-weight: 500;
-            border-top: 1px solid #5A7A5E;
+            .contacts-title {
+                font-size: 2.2rem;
+            }
+
+            .contacts-info,
+            .contact-form {
+                padding: 25px;
+            }
+
+            .about-emoji {
+                font-size: 10rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <section class="slide">
-        <div class="content">
-            <div class="text-block">
-                <h1 class="slide-title">Сила морских водорослей для совершенной кожи</h1>
-                <div class="description">
-                    <p>Мы создаём современные биоматериалы для косметических масок, в основе которых – альгинат, натуральный компонент, получаемый из бурых морских водорослей. Это высокоэффективное вещество широко используется в профессиональной косметологии благодаря своим выраженным уходовым и моделирующим свойствам.</p>
-                </div>
-            </div>
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">🌿</div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-hint">
-            Листайте вниз
-            <span></span>
-        </div>
-    </section>
+    <header class="header">
+        <nav class="nav-tabs">
+            <span class="nav-tab active" data-page="home">ГЛАВНАЯ</span>
+            <span class="nav-tab" data-page="about">О НАС</span>
+            <span class="nav-tab" data-page="contacts">КОНТАКТЫ</span>
+        </nav>
+    </header>
 
-    <section class="slide">
-        <div class="content">
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">💧</div>
+    <div class="page-container">
+        <div class="page active" id="home">
+            <section class="slide">
+                <div class="content">
+                    <div class="text-block">
+                        <h1 class="slide-title">Сила морских водорослей для совершенной кожи</h1>
+                        <div class="description">
+                            <p>Мы создаём современные биоматериалы для косметических масок, в основе которых – альгинат, натуральный компонент, получаемый из бурых морских водорослей. Это высокоэффективное вещество широко используется в профессиональной косметологии благодаря своим выраженным уходовым и моделирующим свойствам.</p>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">🌿</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="text-block">
-                <h2 class="slide-title">Альгинат – интенсивное увлажнение и лифтинг-эффект</h2>
-                <div class="description">
-                    <p>Альгинат образует на коже мягкую гелевую матрицу, которая плотно прилегает к поверхности и создаёт окклюзионный эффект. Это позволяет:</p>
-                    <ul class="feature-list">
-                        <li>глубоко увлажнять кожу и предотвращать трансэпидермальную потерю влаги</li>
-                        <li>повышать упругость и тонус</li>
-                        <li>обеспечивать выраженный лифтинг-эффект</li>
-                        <li>выравнивать текстуру и придавать коже здоровое сияние</li>
-                    </ul>
-                    <p>Кроме того, альгинат усиливает проникновение активных компонентов, значительно повышая эффективность маски.</p>
+                <div class="scroll-hint">
+                    Листайте вниз
+                    <span></span>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="content">
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">💧</div>
+                        </div>
+                    </div>
+                    <div class="text-block">
+                        <h2 class="slide-title">Альгинат – интенсивное увлажнение и лифтинг-эффект</h2>
+                        <div class="description">
+                            <p>Альгинат образует на коже мягкую гелевую матрицу, которая плотно прилегает к поверхности и создаёт окклюзионный эффект. Это позволяет:</p>
+                            <ul class="feature-list">
+                                <li>глубоко увлажнять кожу и предотвращать трансэпидермальную потерю влаги</li>
+                                <li>повышать упругость и тонус</li>
+                                <li>обеспечивать выраженный лифтинг-эффект</li>
+                                <li>выравнивать текстуру и придавать коже здоровое сияние</li>
+                            </ul>
+                            <p>Кроме того, альгинат усиливает проникновение активных компонентов, значительно повышая эффективность маски.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="content">
+                    <div class="text-block">
+                        <h2 class="slide-title">Детокс и восстановление кожи</h2>
+                        <div class="description">
+                            <p>Альгинат оказывает мягкое очищающее и восстанавливающее действие:</p>
+                            <ul class="feature-list">
+                                <li>способствует выведению токсинов и загрязнений</li>
+                                <li>снижает покраснения и воспаления</li>
+                                <li>успокаивает чувствительную кожу</li>
+                                <li>стимулирует естественные процессы обновления</li>
+                            </ul>
+                            <p>Подходит для всех типов кожи, включая чувствительную и реактивную.</p>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">🌸</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="content">
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">✨</div>
+                        </div>
+                    </div>
+                    <div class="text-block">
+                        <h2 class="slide-title">Гидролизат коллагена – усиленная биодоступность и эффективность</h2>
+                        <div class="description">
+                            <p>Мы используем гидролизованную форму коллагена, обладающую явными преимуществами перед обычным коллагеном. Благодаря расщеплению до пептидов с низкой молекулярной массой, гидролизат:</p>
+                            <ul class="feature-list">
+                                <li>легче проникает в верхние слои кожи</li>
+                                <li>быстрее включается в процессы восстановления</li>
+                                <li>эффективнее удерживает влагу</li>
+                                <li>активнее поддерживает упругость и эластичность</li>
+                            </ul>
+                            <p>В отличие от обычного коллагена, который преимущественно работает на поверхности, гидролизованный коллаген обеспечивает более глубокое и пролонгированное действие.</p>
+                            <p>Регулярное применение способствует:</p>
+                            <ul class="feature-list">
+                                <li>уменьшению выраженности морщин</li>
+                                <li>повышению плотности кожи</li>
+                                <li>улучшению текстуры и тонуса</li>
+                                <li>восстановлению защитного барьера</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="content">
+                    <div class="text-block">
+                        <h2 class="slide-title">Широкие направления применения</h2>
+                        <div class="description">
+                            <p>Разработанный нами биоматериал универсален и может использоваться в различных форматах косметической продукции:</p>
+                            <ul class="feature-list">
+                                <li>альгинатные маски для лица (профессиональные и домашние)</li>
+                                <li>маски и обёртывания для рук и тела</li>
+                                <li>гидрогелевые патчи для зоны вокруг глаз и локальных участков</li>
+                                <li>SPA-уходы и салонные процедуры</li>
+                                <li>косметические продукты с пролонгированным высвобождением активных компонентов</li>
+                            </ul>
+                            <p>Благодаря своим свойствам, материал легко адаптируется под разные форматы и задачи – от экспресс-ухода до профессиональных процедур.</p>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">🧴</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="content">
+                    <div class="image-block">
+                        <div class="photo-placeholder">
+                            <div class="icon">🌍</div>
+                        </div>
+                    </div>
+                    <div class="text-block">
+                        <h2 class="slide-title">Экологичность и устойчивое производство</h2>
+                        <div class="description">
+                            <p>Наши биоматериалы разрабатываются с заботой о будущем:</p>
+                            <ul class="feature-list">
+                                <li>альгинат получают из возобновляемых морских ресурсов</li>
+                                <li>формулы биоразлагаемы и безопасны для окружающей среды</li>
+                                <li>производство соответствует принципам устойчивого развития</li>
+                                <li>отсутствуют агрессивные и вредные компоненты</li>
+                            </ul>
+                            <p>Мы создаём решения, которые объединяют эффективность, научный подход и экологическую ответственность – для современной косметики нового поколения.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <p>© 2026 | Биоматериалы на основе альгината | С заботой о коже и природе</p>
+            </footer>
+        </div>
+
+        <div class="page" id="about">
+            <div class="about-page">
+                <div class="about-content">
+                    <div class="about-emoji">🌱</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="slide">
-        <div class="content">
-            <div class="text-block">
-                <h2 class="slide-title">Детокс и восстановление кожи</h2>
-                <div class="description">
-                    <p>Альгинат оказывает мягкое очищающее и восстанавливающее действие:</p>
-                    <ul class="feature-list">
-                        <li>способствует выведению токсинов и загрязнений</li>
-                        <li>снижает покраснения и воспаления</li>
-                        <li>успокаивает чувствительную кожу</li>
-                        <li>стимулирует естественные процессы обновления</li>
-                    </ul>
-                    <p>Подходит для всех типов кожи, включая чувствительную и реактивную.</p>
-                </div>
-            </div>
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">🌸</div>
+        <div class="page" id="contacts">
+            <div class="contacts-page">
+                <div class="contacts-container">
+                    <h2 class="contacts-title">Свяжитесь с нами</h2>
+                    
+                    <div class="contacts-info">
+                        <p><strong>Адрес:</strong> Г. ЧЕЛЯБИНСК, УЛ. ЮЖНАЯ, Д. 2А, КВ. 15</p>
+                        <p><strong>Телефон:</strong> +7 (912) 772-15-61</p>
+                        <p><strong>Email:</strong> info@alginatebio.ru</p>
+                        <p style="margin-top: 20px;">По любым вопросам можно связаться с нами по указанным контактам или оставьте сообщение в форме обратной связи:</p>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 class="form-title">Форма обратной связи</h3>
+                        
+                        <form action="https://formsubmit.co/el/keduzo" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_subject" value="Новое сообщение с сайта Альгинат">
+                            
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="Имя" required placeholder="Введите ваше имя">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="surname">Фамилия</label>
+                                <input type="text" id="surname" name="Фамилия" required placeholder="Введите вашу фамилию">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Номер телефона</label>
+                                <input type="tel" id="phone" name="Телефон" required placeholder="+7 (___) ___-__-__">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="Email" required placeholder="example@mail.ru">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" name="Сообщение" required placeholder="Введите ваше сообщение..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Отправить сообщение</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="slide">
-        <div class="content">
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">✨</div>
-                </div>
-            </div>
-            <div class="text-block">
-                <h2 class="slide-title">Гидролизат коллагена – усиленная биодоступность и эффективность</h2>
-                <div class="description">
-                    <p>Мы используем гидролизованную форму коллагена, обладающую явными преимуществами перед обычным коллагеном. Благодаря расщеплению до пептидов с низкой молекулярной массой, гидролизат:</p>
-                    <ul class="feature-list">
-                        <li>легче проникает в верхние слои кожи</li>
-                        <li>быстрее включается в процессы восстановления</li>
-                        <li>эффективнее удерживает влагу</li>
-                        <li>активнее поддерживает упругость и эластичность</li>
-                    </ul>
-                    <p>В отличие от обычного коллагена, который преимущественно работает на поверхности, гидролизованный коллаген обеспечивает более глубокое и пролонгированное действие.</p>
-                    <p>Регулярное применение способствует:</p>
-                    <ul class="feature-list">
-                        <li>уменьшению выраженности морщин</li>
-                        <li>повышению плотности кожи</li>
-                        <li>улучшению текстуры и тонуса</li>
-                        <li>восстановлению защитного барьера</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        const tabs = document.querySelectorAll('.nav-tab');
+        const pages = document.querySelectorAll('.page');
 
-    <section class="slide">
-        <div class="content">
-            <div class="text-block">
-                <h2 class="slide-title">Широкие направления применения</h2>
-                <div class="description">
-                    <p>Разработанный нами биоматериал универсален и может использоваться в различных форматах косметической продукции:</p>
-                    <ul class="feature-list">
-                        <li>альгинатные маски для лица (профессиональные и домашние)</li>
-                        <li>маски и обёртывания для рук и тела</li>
-                        <li>гидрогелевые патчи для зоны вокруг глаз и локальных участков</li>
-                        <li>SPA-уходы и салонные процедуры</li>
-                        <li>косметические продукты с пролонгированным высвобождением активных компонентов</li>
-                    </ul>
-                    <p>Благодаря своим свойствам, материал легко адаптируется под разные форматы и задачи – от экспресс-ухода до профессиональных процедур.</p>
-                </div>
-            </div>
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">🧴</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div class="content">
-            <div class="image-block">
-                <div class="photo-placeholder">
-                    <div class="icon">🌍</div>
-                </div>
-            </div>
-            <div class="text-block">
-                <h2 class="slide-title">Экологичность и устойчивое производство</h2>
-                <div class="description">
-                    <p>Наши биоматериалы разрабатываются с заботой о будущем:</p>
-                    <ul class="feature-list">
-                        <li>альгинат получают из возобновляемых морских ресурсов</li>
-                        <li>формулы биоразлагаемы и безопасны для окружающей среды</li>
-                        <li>производство соответствует принципам устойчивого развития</li>
-                        <li>отсутствуют агрессивные и вредные компоненты</li>
-                    </ul>
-                    <p>Мы создаём решения, которые объединяют эффективность, научный подход и экологическую ответственность – для современной косметики нового поколения.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <p>© 2026 | Биоматериалы на основе альгината | С заботой о коже и природе</p>
-    </footer>
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const pageId = tab.getAttribute('data-page');
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(pageId).classList.add('active');
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 
 </body>
 </html>
