@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Биоматериалы | Альгинат и Коллаген</title>
+    <title>Морские биоматериалы | Альгинат и Коллаген</title>
     <style>
         * {
             margin: 0;
@@ -305,12 +305,50 @@
             color: #F5F0E6;
         }
 
-        .support-text {
+        .support-block {
             margin-top: 25px;
             padding-top: 25px;
             border-top: 1px solid #5A7A5E;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .support-text {
+            flex: 2;
             font-style: italic;
             color: #D4C9B3;
+            font-size: 1.1rem;
+        }
+
+        .support-logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 100%;
+            max-width: 180px;
+            aspect-ratio: 1 / 1;
+            background-color: #2A4530;
+            border-radius: 16px;
+            border: 1px dashed #8FA88F;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #A8B8A5;
+            font-size: 0.9rem;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .logo-placeholder .logo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            opacity: 0.5;
         }
 
         .contact-form {
@@ -445,6 +483,20 @@
 
             .about-emoji {
                 font-size: 10rem;
+            }
+
+            .support-block {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .support-text {
+                text-align: center;
+            }
+
+            .logo-placeholder {
+                max-width: 140px;
             }
         }
     </style>
@@ -627,8 +679,17 @@
                         <p><strong>Телефон:</strong> +7 (912) 772-15-61</p>
                         <p><strong>Email:</strong> BioSkinMatrix@yandex.ru</p>
                         <p style="margin-top: 20px;">По любым вопросам можно связаться с нами по указанным контактам или оставьте сообщение в форме обратной связи:</p>
-                        <div class="support-text">
-                            <p>Проект выполнен при поддержке «Фонда содействия инновациям» в рамках федеральной программы «Студенческий стартап»</p>
+                        
+                        <div class="support-block">
+                            <div class="support-text">
+                                <p>Проект выполнен при поддержке «Фонда содействия инновациям» в рамках федеральной программы «Студенческий стартап»</p>
+                            </div>
+                            <div class="support-logo">
+                                <div class="logo-placeholder">
+                                    <div class="logo-icon">🏛️</div>
+                                    <p>Место для логотипа</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
