@@ -121,7 +121,6 @@
             border-left: 8px solid #C5B89A;
             padding-left: 25px;
             line-height: 1.2;
-            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
             quotes: "«" "»" "‹" "›";
         }
 
@@ -180,30 +179,14 @@
             align-items: center;
         }
 
-        .photo-placeholder {
+        .image-block img {
             width: 100%;
-            aspect-ratio: 4 / 3;
             max-width: 550px;
-            background-color: #1C2E1F;
+            height: auto;
             border-radius: 24px;
-            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.3);
-            border: 1px solid #5A7A5E;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #D4C9B3;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            padding: 20px;
-            text-align: center;
-            backdrop-filter: blur(2px);
-        }
-
-        .photo-placeholder .icon {
-            font-size: 5rem;
-            opacity: 0.5;
+            background: #1C2E1F;
+            padding: 10px;
+            display: block;
         }
 
         .scroll-hint {
@@ -250,7 +233,6 @@
             60% {transform: translateX(-50%) translateY(5px);}
         }
 
-        /* Стили для страницы О НАС (полноценная) */
         .about-page {
             min-height: calc(100vh - 70px);
             width: 100%;
@@ -309,7 +291,6 @@
             opacity: 0.9;
         }
 
-        /* страница контактов — только контент */
         .contacts-page {
             min-height: calc(100vh - 70px);
             padding: 60px 5%;
@@ -348,50 +329,77 @@
             color: #F5F0E6;
         }
 
+        /* БЛОК ПОДДЕРЖКИ — три колонки */
         .support-block {
-            margin-top: 25px;
-            padding-top: 25px;
+            margin-top: 35px;
+            padding-top: 35px;
             border-top: 1px solid #5A7A5E;
+        }
+
+        .support-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #F5F0E6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .support-content {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 30px;
+            flex-wrap: wrap;
         }
 
         .support-text {
             flex: 2;
-            font-style: italic;
-            color: #D4C9B3;
+            min-width: 280px;
+            color: #EBE5D9;
             font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .support-text strong {
+            color: #F5F0E6;
+            font-weight: 700;
         }
 
         .support-logo {
             flex: 1;
+            min-width: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .logo-placeholder {
-            width: 100%;
-            max-width: 180px;
-            aspect-ratio: 1 / 1;
-            background-color: #2A4530;
+        .logo-box {
+            background: #FFFFFF;
             border-radius: 16px;
-            border: 1px dashed #8FA88F;
+            padding: 20px 25px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #A8B8A5;
-            font-size: 0.9rem;
-            padding: 15px;
-            text-align: center;
+            width: 100%;
+            max-width: 230px;
+            min-height: 140px;
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.35);
         }
 
-        .logo-placeholder .logo-icon {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
-            opacity: 0.5;
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Пустой слот под вторую фотографию */
+        .logo-box.empty {
+            border: 2px dashed #A8B8A5;
+            background: #2A4530;
         }
 
         .contact-form {
@@ -497,20 +505,20 @@
             .slide {
                 padding: 40px 20px;
             }
-            
+
             .slide-title {
                 font-size: 2.4rem;
                 padding-left: 18px;
             }
-            
+
             .content {
                 gap: 30px;
             }
-            
+
             .description {
                 font-size: 1.15rem;
             }
-            
+
             .feature-list li {
                 font-size: 1.1rem;
             }
@@ -532,18 +540,26 @@
                 padding: 30px 20px;
             }
 
-            .support-block {
+            .support-content {
                 flex-direction: column;
-                text-align: center;
-                gap: 20px;
             }
 
             .support-text {
-                text-align: center;
+                order: 1;
             }
 
-            .logo-placeholder {
-                max-width: 140px;
+            .support-logo {
+                order: 2;
+                width: 100%;
+            }
+
+            .logo-box {
+                max-width: 260px;
+                min-height: 120px;
+            }
+
+            .logo-box img {
+                max-height: 80px;
             }
         }
     </style>
@@ -559,8 +575,9 @@
     </header>
 
     <div class="page-container">
-        <!-- ГЛАВНАЯ страница (все слайды и футер) -->
+
         <div class="page active" id="home">
+
             <section class="slide">
                 <div class="content">
                     <div class="text-block">
@@ -570,7 +587,7 @@
                         </div>
                     </div>
                     <div class="image-block">
-                        <img src="f1.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f1.png" alt="Иллюстрация водоросли">
                     </div>
                 </div>
                 <div class="scroll-hint">
@@ -582,7 +599,7 @@
             <section class="slide">
                 <div class="content">
                     <div class="image-block">
-                        <img src="f2.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f2.png" alt="Иллюстрация водоросли">
                     </div>
                     <div class="text-block">
                         <h2 class="slide-title">Альгинат – интенсивное увлажнение и лифтинг-эффект</h2>
@@ -616,7 +633,7 @@
                         </div>
                     </div>
                     <div class="image-block">
-                        <img src="f3.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f3.png" alt="Иллюстрация водоросли">
                     </div>
                 </div>
             </section>
@@ -624,7 +641,7 @@
             <section class="slide">
                 <div class="content">
                     <div class="image-block">
-                        <img src="f4.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f4.png" alt="Иллюстрация водоросли">
                     </div>
                     <div class="text-block">
                         <h2 class="slide-title">Гидролизат коллагена – усиленная биодоступность и эффективность</h2>
@@ -666,7 +683,7 @@
                         </div>
                     </div>
                     <div class="image-block">
-                        <img src="f5.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f5.png" alt="Иллюстрация водоросли">
                     </div>
                 </div>
             </section>
@@ -674,7 +691,7 @@
             <section class="slide">
                 <div class="content">
                     <div class="image-block">
-                        <img src="f6.png" alt="Иллюстрация водоросли" style="max-width: 100%; height: auto; border-radius: 24px; background: #1C2E1F; padding: 10px;">
+                        <img src="f6.png" alt="Иллюстрация водоросли">
                     </div>
                     <div class="text-block">
                         <h2 class="slide-title">Экологичность и устойчивое производство</h2>
@@ -697,7 +714,6 @@
             </footer>
         </div>
 
-        <!-- СТРАНИЦА "О НАС" (полноценный блок, без примеси главной) -->
         <div class="page" id="about">
             <div class="about-page">
                 <div class="about-container">
@@ -720,67 +736,80 @@
             </div>
         </div>
 
-        <!-- СТРАНИЦА "КОНТАКТЫ" (только контакты и форма, без слайдов) -->
         <div class="page" id="contacts">
             <div class="contacts-page">
                 <div class="contacts-container">
                     <h2 class="contacts-title">Свяжитесь с нами</h2>
-                    
+
                     <div class="contacts-info">
-                        <p><strong>📍 Адрес:</strong> г. Челябинск, ул. Южная, д. 2А</p>
+                        <p><strong>📍 Адрес:</strong> г. Челябинск, ул. Южная, д. 2А, кв. 15</p>
                         <p><strong>📞 Телефон:</strong> +7 (912) 772-15-61</p>
                         <p><strong>✉ Email:</strong> BioSkinMatrix@yandex.ru</p>
                         <p style="margin-top: 20px;">По любым вопросам о сотрудничестве, заказе биоматериалов или консультации заполните форму обратной связи — наши специалисты ответят в ближайшее время.</p>
-                        
+
                         <div class="support-block">
-                            <div class="support-text">
-                                <p>🏆 Проект выполнен при поддержке «Фонда содействия инновациям» в рамках федеральной программы «Студенческий стартап»</p>
-                            </div>
-                            <div class="support-logo">
-                                <img src="fsi.png" alt="Фонд содействия инновациям" style="max-width: 100%; height: auto; border-radius: 16px;">
+                            <h3 class="support-title">Партнёры и поддержка</h3>
+
+                            <div class="support-content">
+                                <div class="support-logo">
+                                    <div class="logo-box">
+                                        <img src="fsi.png" alt="Фонд содействия инновациям">
+                                    </div>
+                                </div>
+
+                                <div class="support-text">
+                                    <p>Проект реализован при поддержке <strong>Фонда содействия инновациям</strong> в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии».</p>
+                                </div>
+
+                                <div class="support-logo">
+                                    <div class="logo-box empty">
+                                        <!-- Вставьте сюда вторую фотографию -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="contact-form">
                         <h3 class="form-title">📬 Форма обратной связи</h3>
-                        
+
                         <form action="https://formsubmit.co/BioSkinMatrix@yandex.ru" method="POST">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_subject" value="Новое сообщение с сайта Альгинат">
-                            
+
                             <div class="form-group">
                                 <label for="name">Имя</label>
                                 <input type="text" id="name" name="Имя" required placeholder="Введите ваше имя">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="surname">Фамилия</label>
                                 <input type="text" id="surname" name="Фамилия" required placeholder="Введите вашу фамилию">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="phone">Номер телефона</label>
                                 <input type="tel" id="phone" name="Телефон" required placeholder="+7 (___) ___-__-__">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="Email" required placeholder="example@mail.ru">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="message">Сообщение</label>
                                 <textarea id="message" name="Сообщение" required placeholder="Введите ваше сообщение..."></textarea>
                             </div>
-                            
+
                             <button type="submit" class="submit-btn">Отправить сообщение</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <script>
@@ -788,13 +817,10 @@
         const pages = document.querySelectorAll('.page');
 
         function switchPage(pageId) {
-            // Убираем активный класс у всех страниц
             pages.forEach(page => page.classList.remove('active'));
-            // Показываем нужную
             const targetPage = document.getElementById(pageId);
             if (targetPage) targetPage.classList.add('active');
-            
-            // Обновляем активный класс для табов
+
             tabs.forEach(tab => {
                 if (tab.getAttribute('data-page') === pageId) {
                     tab.classList.add('active');
@@ -802,8 +828,7 @@
                     tab.classList.remove('active');
                 }
             });
-            
-            // Прокрутка вверх
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -814,14 +839,13 @@
             });
         });
 
-        // Убедимся, что при загрузке активна главная (на случай перезагрузки)
         const activeTab = document.querySelector('.nav-tab.active');
         if (activeTab) {
-            const defaultPage = activeTab.getAttribute('data-page');
-            switchPage(defaultPage);
+            switchPage(activeTab.getAttribute('data-page'));
         } else {
             switchPage('home');
         }
     </script>
+
 </body>
 </html>
